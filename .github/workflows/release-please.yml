@@ -20,8 +20,8 @@ jobs:
 #          github_app_private_key: ${{ secrets.RELEASE_PLEASE_PRIVATE_KEY }}
       - uses: googleapis/release-please-action@v4
         id: release
-#        with:
-#          token: ${{ steps.github_app_token.outputs.token }}
+        with:
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
   evaluate-checks:
     runs-on: ubuntu-latest
