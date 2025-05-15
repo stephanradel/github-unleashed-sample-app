@@ -1,0 +1,13 @@
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in the repo.
+* @sample-app-developers @sample-app-technical-leads
+
+# This are the files managed by the IT Support Team
+/.github/ @sample-app-support
+/.czrc @sample-app-support
+/commitlint.config.js @sample-app-support
+/release-please-config.json @sample-app-support
+/LICENSE.md @sample-app-support
+/SECURITY.md @sample-app-support

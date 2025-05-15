@@ -27,9 +27,11 @@ A simple Spring Boot application displaying an index and a greetings page:
 - release-please.yml
 
 ## GitHub Tool configuration:
+- .github/dependabot.yml
 - commitlint.config.js
 - .release-please-manifest.json
 - release-please-config.json
+- CODEOWNERS
 
 ## Getting started
 
