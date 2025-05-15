@@ -1,0 +1,79 @@
+name: Continuous Integration
+
+on:
+  push:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    outputs:
+      artifacts: ${{ steps.build.outputs.artifacts }}
+      version: ${{ steps.check_version.outputs.version }}
+      is_snapshot: ${{ steps.check_version.outputs.is_snapshot }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check Version
+        id: check_version
+        run: |
+          version=$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          if [[ "${version}" == *SNAPSHOT ]]; then 
+            echo "is_snapshot=true" >> "$GITHUB_OUTPUT"
+          else 
+            echo "is_snapshot=false" >> "$GITHUB_OUTPUT"
+          fi
+#      - name: Build Project
+#        uses: ebcont/ebcont.it-support.action.maven-build@v2
+#        with:
+#          java_version: '21'
+#        id: build
+#        env:
+#          GITHUB_USERNAME: ${{ github.actor }}
+#          GITHUB_TOKEN: ${{ secrets.READ_PACKAGES_PAT }}
+
+  integration_tests:
+    name: Integration Tests
+    needs: [build]
+    uses: ./.github/workflows/ci-integration-tests.yml
+    secrets: inherit
+
+  publish:
+    name: Publish
+    needs: [build, integration_tests]
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v') ||
+      (github.ref_name == github.event.repository.default_branch && needs.build.outputs.is_snapshot == 'true')
+    steps:
+      - name: Release Safety Check
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          if [[ "${{needs.build.outputs.is_snapshot}}" == "true" ]]; then
+            echo "Workflow run was triggered by a tag, but attempts to publish a snapshot version. Is the tag and the pom.xml version out of sync?"
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: ./
+#      - name: Publish
+#        uses: ebcont/ebcont.it-support.action.maven-publish@v1
+#        with:
+#          artifacts: ${{ needs.build.outputs.artifacts }}
+#        env:
+#          GITHUB_USERNAME: ${{ github.actor }}
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  evaluate-checks:
+    runs-on: ubuntu-latest
+    if: always()
+    name: Evaluate checks
+    needs: [ build, integration_tests, publish ]
+    steps:
+      - name: Check if all jobs have parsed
+        uses: re-actors/alls-green@v1.2.2
+        with:
+          jobs: ${{ toJSON(needs) }}
+          allowed-skips: publish

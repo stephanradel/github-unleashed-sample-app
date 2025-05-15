@@ -1,0 +1,15 @@
+# If enabled, this workflow will be triggered after the 'build' job in the build workflow (ci-maven.yml) has finished
+
+name: Integration test
+
+on:
+  workflow_call:
+
+jobs:
+  integration_tests:
+    runs-on: ubuntu-latest
+    name: Integration test
+    steps:
+      - name: Dummy Test Step
+        id: dummy_test_step
+        run: echo "Hello Tests!"
