@@ -10,9 +10,9 @@ It's purpose is to demonstrate the EBCONT GitHub experience.
   - "branch-default", "branch-review", "branch-conventional-commits" and "tag-default"
 - Branch & tag rulesets are activated on the repository through the chosen custom property value(s)
 - Tools: 
-  - Commitlint&nbsp;&emsp;&emsp;&emsp;&emsp;[Checks commit messages](<https://www.conventionalcommits.org/en/v1.0.0/>)
+  - Commitlint&emsp;&emsp;&emsp;&emsp;[Checks commit messages](<https://www.conventionalcommits.org/en/v1.0.0/>)
   - Release Please&emsp;&emsp;[Release & Changelog automation](<https://github.com/googleapis/release-please>)
-  - Dependabot&nbsp;&nbsp;&emsp;&emsp;&emsp;[Dependency management](<https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide>)
+  - Dependabot&nbsp;&emsp;&emsp;&emsp;[Dependency management](<https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide>)
 
 ## Contact persons
 
