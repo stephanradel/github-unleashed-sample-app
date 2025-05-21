@@ -1,6 +1,7 @@
 # GitHub Unleashed: Hands-on and Best Practices
 
-Workshop to demonstrate the EBCONT GitHub experience using a "Sample App".
+This repository contains a sample application used for the Workshop "GitHub Unleashed: Hands-on and Best Practices".
+It's purpose is to demonstrate the EBCONT GitHub experience.
 
 ## Contacts
 
@@ -17,10 +18,12 @@ Workshop to demonstrate the EBCONT GitHub experience using a "Sample App".
 A simple Spring Boot application displaying an index and a greetings page:
 - Index page with a link to the greetings page
   - Has an error in the header that will be fixed during the workshop 
-- Greetings page displays hello world
+- Greetings page displays "hello world" message
   - Has an additional argument that will be used to add a feature during the workshop 
+- Maven POM file has an outdated dependency of "spring-boot-starter-logging"
+  - Used to demonstrate how Dependabot works  
 
-## GitHub workflows: .github/workflows/
+## GitHub workflows are located under .github/workflows/
 - ci.yml | build, test & publish  
 - ci-integration-tests.yml
 - commitlint.yml
