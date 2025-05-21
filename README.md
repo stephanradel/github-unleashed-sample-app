@@ -1,16 +1,27 @@
+&nbsp;
+<img src="/assets/ebcont-base-white.png" alt="ebcont logo" width="250px">
+
 # GitHub Unleashed: Hands-on and Best Practices
 
 This repository contains a sample application used for the Workshop "GitHub Unleashed: Hands-on and Best Practices".
 It's purpose is to demonstrate the EBCONT GitHub experience.
 
-## Contacts
+- Organization has a Custom Property "code-rulesets" with values:
+  - "branch-default", "branch-review", "branch-conventional-commits" and "tag-default"
+- Branch & tag rulesets are activated on the repository through the chosen custom property value(s)
+- Tools: 
+  - Commitlint&nbsp;&emsp;&emsp;&emsp;&emsp;[Checks commit messages](<https://www.conventionalcommits.org/en/v1.0.0/>)
+  - Release Please&emsp;&emsp;[Release & Changelog automation](<https://github.com/googleapis/release-please>)
+  - Dependabot&nbsp;&nbsp;&emsp;&emsp;&emsp;[Dependency management](<https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide>)
+
+## Contact persons
 
 - Andreas Titz (andreas.titz@ebcont.com)
 - Georg Brandstätter (georg.brandstaetter@ebcont.com)
 
 ## Prerequisites
 
-- GitHub account
+- GitHub account to fork the repository
 - Maven installed on your machine
 
 ## Sample App description
@@ -45,5 +56,7 @@ A simple Spring Boot application displaying an index and a greetings page:
 - Run `mvn spring-boot:run` to start the app
 - Navigate to localhost:8080 with a browser
 
+
+Follow the tasks in the workshop :rocket:
 
 
