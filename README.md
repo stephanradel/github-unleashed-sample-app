@@ -1,5 +1,5 @@
 &nbsp;
-<img src="/assets/ebcont-base-white.png" alt="ebcont logo" width="250px">
+<img src="/assets/ebcont-base_digitalisnow-tuerkis.png" alt="ebcont logo" width="350px">
 
 # GitHub Unleashed: Hands-on and Best Practices
 
