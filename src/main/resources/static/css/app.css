@@ -1,25 +1,29 @@
 body {
     background-color: #3C2459;
+    font-family: Zilla Slab,serif;
 }
 h1 {
     color: white;
     text-align: center;
+    font-size: 6em;
 }
 a,p {
-    font-family: verdana;
     color: #FFFFFF;
-    font-size: 20px;
+    font-size: 2em;
 }
 div#mainsec {
     padding: 100px;
     text-align: center;
 }
 img#ebcont-logo {
-    position: relative;
-    top: 50px;
-    left: 50px;
-    width: 120px;
+    width: 240px;
+    padding-right: 40px;
+    padding-top: 20px;
 }
 .fixme {
     color: #FF0000 !important;
+}
+div#logo-container {
+    width: 100%;
+    text-align: right;
 }
