@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.2](https://github.com/stephanradel/github-unleashed-sample-app/compare/v0.0.1...v0.0.2) (2025-06-03)
+
+
+### Bug Fixes
+
+* Update index.html, fixed typo ([5eb138e](https://github.com/stephanradel/github-unleashed-sample-app/commit/5eb138e8848aacc949b5eaacc2a1178b4aa0dad9))
+
 ## 0.0.1 (2025-06-03)
 
 
